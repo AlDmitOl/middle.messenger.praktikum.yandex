@@ -23,6 +23,7 @@
     "eslint-config-airbnb-typescript": "^17.1.0",
     "sass": "^1.66.1",
     "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
     "typescript": "^5.2.2",
     "vite": "^4.4.5",
     "vite-plugin-static-copy": "^0.17.0"
