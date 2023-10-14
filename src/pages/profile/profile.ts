@@ -51,7 +51,8 @@ class ProfilePage extends Block {
             onExit: (event: Event | undefined) => {
                 if (!event) return;
                 event.preventDefault();
-                logout();
+
+                logout().catch((error) => this.refs.error.setProps({ error }));
             },
             onClickAvatar: (event: Event | undefined) => {
                 if (!event) return;
@@ -92,7 +93,8 @@ class ProfilePage extends Block {
     }
 
     onChangeAvatar(file: File) {
-        changeUserAvatar(file);
+        changeUserAvatar(file)
+            .catch((error) => this.refs.error.setProps({ error }));
     }
 
     protected render(): string {

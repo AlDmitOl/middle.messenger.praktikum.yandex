@@ -22,7 +22,8 @@ class DialogChoiceUser extends Block {
             onChoiceUser: (event: { target:HTMLInputElement | null }) => {
                 const { target } = event;
                 if (target) {
-                    searchUsers({ login: target.value });
+                    searchUsers({ login: target.value })
+                        .catch((error) => console.log('Error searching for users', error));
                 }
             },
             onChoice: (event: { target: HTMLButtonElement | null }) => {
@@ -36,9 +37,11 @@ class DialogChoiceUser extends Block {
 
                     if (user) {
                         if (this.props.loginSearch) {
-                            addUserToChat(transformToUser(user as User));
+                            addUserToChat(transformToUser(user as User))
+                                .catch((error) => console.log('Error adding user',error));
                         } else {
-                            deleteUserToChat(transformToUser(user as User));
+                            deleteUserToChat(transformToUser(user as User))
+                                .catch((error) => console.log('Error deleting user',error));
                         }
                         window.store.set({ isOpenDialogChoiceUser: false, searchChatUsers: [] });
                     }
