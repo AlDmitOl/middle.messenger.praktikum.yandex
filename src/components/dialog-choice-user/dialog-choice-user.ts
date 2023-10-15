@@ -38,10 +38,10 @@ class DialogChoiceUser extends Block {
                     if (user) {
                         if (this.props.loginSearch) {
                             addUserToChat(transformToUser(user as User))
-                                .catch((error) => console.log('Error adding user',error));
+                                .catch((error) => console.log('Error adding user', error));
                         } else {
                             deleteUserToChat(transformToUser(user as User))
-                                .catch((error) => console.log('Error deleting user',error));
+                                .catch((error) => console.log('Error deleting user', error));
                         }
                         window.store.set({ isOpenDialogChoiceUser: false, searchChatUsers: [] });
                     }

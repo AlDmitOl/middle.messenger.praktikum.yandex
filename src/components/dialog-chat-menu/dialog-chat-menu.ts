@@ -28,7 +28,7 @@ class DialogChatMenu extends Block {
             onDeleteChat: () => {
                 deleteChat()
                     .then(() => window.store.set({ isOpenDialogChatMenu: false }))
-                    .catch((error) => console.log('Error deleting chat',error));
+                    .catch((error) => console.log('Error deleting chat', error));
             },
             onAddUser: () => {
                 window.store.set({
