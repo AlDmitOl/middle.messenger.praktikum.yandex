@@ -1,6 +1,6 @@
-@import ../../assets/sass/variables
-@import ../../assets/sass/templates
-@import ../../assets/sass/mixins
+@import '../../assets/sass/variables'
+@import '../../assets/sass/templates'
+@import '../../assets/sass/mixins'
 
 html, body
   @extend %full-screen
@@ -8,17 +8,13 @@ html, body
   @extend %main-font
 
 #app
-  @extend %full-screen
-  @extend %no-indents
   overflow: hidden
   background: $background-color
   color: $font-color
+  @extend %full-screen
+  @extend %no-indents
 
   .error404
-    @extend %full-screen
-    @extend %no-indents
-    @extend %flex-column
-    +flex-alignment(space-around, center)
     .button__primary
       width: 255px
 
@@ -34,13 +30,21 @@ html, body
       font-weight: 700
 
     &__description
-      @extend %flex-column
-      +flex-alignment(center, center)
       &__first
-        color: #14141A
+        color: #14141a
         font-size: 18px
         font-weight: 700
         margin-bottom: 5px
+
       &__second
         font-size: 14px
         font-weight: 600
+
+      @extend %flex-column
+      +flex-alignment(center, center)
+
+    @extend %full-screen
+    @extend %no-indents
+    @extend %flex-column
+    +flex-alignment(space-around, center)
+

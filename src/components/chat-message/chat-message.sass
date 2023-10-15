@@ -1,11 +1,12 @@
-@import ../../assets/sass/variables
-@import ../../assets/sass/mixins
-@import ../../assets/sass/templates
+@import '../../assets/sass/variables'
+@import '../../assets/sass/mixins'
+@import '../../assets/sass/templates'
 
 .chat-message
+  margin: 20px 0
   @extend %flex-row
   +flex-alignment(center, flex-end)
-  margin: 20px 0
+
   &__left
     margin-right: auto
 
@@ -24,16 +25,18 @@
     margin: 0 -10px 0 20px
 
   &__body
+    margin: 0 20px
     @extend %flex-column
     +flex-alignment(center, flex-start)
-    margin: 0 20px
 
   &__info
+    width: 100%
     @extend %flex-row
     +flex-alignment(space-between, center)
-    width: 100%
+
     &__name
       margin: 5px 0 5px 20px
+
     &__time
       margin: 5px 20px 5px 0
 

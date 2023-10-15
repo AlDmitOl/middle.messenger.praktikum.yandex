@@ -1,6 +1,6 @@
-@import ../../assets/sass/variables
-@import ../../assets/sass/templates
-@import ../../assets/sass/mixins
+@import '../../assets/sass/variables'
+@import '../../assets/sass/templates'
+@import '../../assets/sass/mixins'
 
 html, body
   @extend %full-screen
@@ -10,6 +10,8 @@ html, body
 #app
   @extend %full-screen
   @extend %no-indents
+
+#app
   overflow: hidden
   background: $background-color
   color: $font-color
@@ -17,24 +19,30 @@ html, body
 #wrapper
   @extend %all-size
   @extend %flex-row
+
+#wrapper
   padding: 20px
 
   .sidebar
-    @extend %flex-column
     flex: 1 auto
     overflow: hidden
-    border-radius: 25px 0 0 0
+    border-radius: 25px 0 0
     background: $background-color
     box-sizing: border-box
+    @extend %flex-column
+
     & .info-bar
       margin-right: 10px
+
     & .search-wrapper,
     & .chat-list__header,
     & .chats__indent
       margin-right: 10px
       background: $background-color-third
+
     & .chat-list__header__content
       margin-right: -10px
+
     & .chats__indent
       flex: 1 auto
 
@@ -45,6 +53,7 @@ html, body
       overflow-y: scroll
       -ms-overflow-style: none
       scrollbar-width: none
+
       &::-webkit-scrollbar
         width: 0
         height: 0
@@ -52,21 +61,20 @@ html, body
     .content
       box-sizing: border-box
       margin-top: 10px
-      @extend %flex-column
-      +flex-alignment(flex-start, stretch)
       flex: 1 auto
       overflow: hidden
-      //background: $background-color-third
+      @extend %flex-column
+      +flex-alignment(flex-start, stretch)
 
   .view
     display: flex
-    +flex-alignment(center, center)
     flex: 4 auto
     overflow: hidden
     border-radius: 0 25px 0 0
     background: $background-color-second
+    +flex-alignment(center, center)
 
 .list__pages
-  background: #FFF
+  background: #fff
   border-radius: 25px
   margin-top: 20px

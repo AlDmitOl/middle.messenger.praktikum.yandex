@@ -1,14 +1,14 @@
-@import ../../assets/sass/variables
-@import ../../assets/sass/mixins
-@import ../../assets/sass/templates
+@import '../../assets/sass/variables'
+@import '../../assets/sass/mixins'
+@import '../../assets/sass/templates'
 
 .info-bar
   box-sizing: border-box
-  @extend %flex-row
-  +flex-alignment(flex-start, center)
   height: 120px
   background: $background-color-second
   padding: 20px
+  @extend %flex-row
+  +flex-alignment(flex-start, center)
 
   &__title
     margin: 0
@@ -18,8 +18,7 @@
   &__username
     font-weight: bold
     font-size: 18px
-    margin: 0
-    margin-left: 11px
+    margin: 0 0 0 11px
     align-self: flex-end
 
   .button__settings

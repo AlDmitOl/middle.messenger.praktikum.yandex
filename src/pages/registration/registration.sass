@@ -1,6 +1,6 @@
-@import ../../assets/sass/variables
-@import ../../assets/sass/templates
-@import ../../assets/sass/mixins
+@import '../../assets/sass/variables'
+@import '../../assets/sass/templates'
+@import '../../assets/sass/mixins'
 
 html, body
   @extend %full-screen
@@ -8,11 +8,11 @@ html, body
   @extend %main-font
 
 #app
-  @extend %full-screen
-  @extend %no-indents
   overflow: hidden
   background: $background-color
   color: $font-color
+  @extend %full-screen
+  @extend %no-indents
 
 .registration__content
   display: flex
@@ -20,21 +20,21 @@ html, body
   +flex-alignment(center, center)
 
   .registration-form
-    @extend %flex-column
-    +flex-alignment(space-between, center)
     box-sizing: border-box
     padding: 20px 30px 30px
     width: 340px
     height: 680px
-    box-shadow: 0 0 6px 0 #FFFFFFC6
+    box-shadow: 0 0 6px 0 #ffffffc6
     border-radius: 12px
-    background: #FFF
+    background: #fff
+    @extend %flex-column
+    +flex-alignment(space-between, center)
 
   &__header
-    @extend %flex-column
-    +flex-alignment(flex-start, center)
     box-sizing: border-box
     width: 280px
+    @extend %flex-column
+    +flex-alignment(flex-start, center)
 
     &__title
       color: $font-color-second
@@ -55,6 +55,6 @@ html, body
 
     & .button__primary
       display: flex
-      +flex-alignment(center, center)
       width: 280px
       height: 27px
+      +flex-alignment(center, center)

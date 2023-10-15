@@ -1,6 +1,6 @@
-@import ../../assets/sass/variables
-@import ../../assets/sass/templates
-@import ../../assets/sass/mixins
+@import '../../assets/sass/variables'
+@import '../../assets/sass/templates'
+@import '../../assets/sass/mixins'
 
 html, body
   @extend %full-screen
@@ -10,6 +10,8 @@ html, body
 #app
   @extend %full-screen
   @extend %no-indents
+
+#app
   overflow: hidden
   background: $background-color
   color: $font-color
@@ -20,10 +22,10 @@ html, body
     +flex-alignment(center, center)
 
     &__header
-      @extend %flex-column
-      +flex-alignment(flex-start, center)
       box-sizing: border-box
       width: 280px
+      @extend %flex-column
+      +flex-alignment(flex-start, center)
 
       &__title
         color: $font-color-second

@@ -6,6 +6,8 @@
  *
  * Set to false if you want to drop support for IE6 and IE7
 
+ /* stylelint-disable */
+
 $legacy_browser_support: false !default
 
 /* Base
@@ -26,7 +28,7 @@ html
   -webkit-text-size-adjust: 100%
   /* 2
   @if $legacy_browser_support
-    *font-size: 100%
+    font-size: 100%
     /* 3
 
 /**
@@ -70,8 +72,8 @@ video
   vertical-align: baseline
   /* 2
   @if $legacy_browser_support
-    *display: inline
-    *zoom: 1
+    display: inline
+    zoom: 1
 
 /**
  * Prevents modern browsers from displaying `audio` without controls.
@@ -168,11 +170,11 @@ mark
    * Addresses margins set differently in IE 6/7.
   p,
   pre
-    *margin: 1em 0
+    margin: 1em 0
   /*
    * Addresses CSS quotes not supported in IE 6/7.
   q
-    *quotes: none
+    quotes: none
   /*
    * Addresses `quotes` property not supported in Safari 4.
   q:before,
@@ -212,21 +214,21 @@ sub
   menu,
   ol,
   ul
-    *margin: 1em 0
+    margin: 1em 0
   dd
-    *margin: 0 0 0 40px
+    margin: 0 0 0 40px
   /*
    * Addresses paddings set differently in IE 6/7.
   menu,
   ol,
   ul
-    *padding: 0 0 0 40px
+    padding: 0 0 0 40px
   /*
    * Corrects list images handled incorrectly in IE 7.
   nav ul,
   nav ol
-    *list-style: none
-    *list-style-image: none
+    list-style: none
+    list-style-image: none
 
 /* Embedded content
  * ==========================================================================
@@ -238,7 +240,7 @@ sub
 img
   border: 0
   @if $legacy_browser_support
-    *-ms-interpolation-mode: bicubic
+    -ms-interpolation-mode: bicubic
     /* 2
 
 /**
@@ -311,7 +313,7 @@ textarea
   @if $legacy_browser_support
     vertical-align: baseline
     /* 3
-    *vertical-align: middle
+    vertical-align: middle
     /* 3
 
 /**
@@ -348,7 +350,7 @@ input[type="submit"]
   cursor: pointer
   /* 3
   @if $legacy_browser_support
-    *overflow: visible
+    overflow: visible
     /* 4
 
 /**
@@ -385,9 +387,9 @@ input[type="radio"]
   padding: 0
   /* 2
   @if $legacy_browser_support
-    *height: 13px
+    height: 13px
     /* 3
-    *width: 13px
+    width: 13px
     /* 3
 
 /**
@@ -443,7 +445,7 @@ legend
   @if $legacy_browser_support
     white-space: normal
     /* 3
-    *margin-left: -7px
+    margin-left: -7px
     /* 4
 
 /**
