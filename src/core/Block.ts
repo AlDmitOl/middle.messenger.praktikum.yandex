@@ -88,7 +88,6 @@ abstract class Block {
     }
 
     // Not used anywhere yet
-    // @ts-ignore
     private _removeEvents() {
         Object.keys(this.events)
             .forEach((eventName) => {
@@ -158,6 +157,7 @@ abstract class Block {
     }
 
     protected _componentWillUnmount() {
+        this._removeEvents();
         this.componentWillUnmount();
     }
 
