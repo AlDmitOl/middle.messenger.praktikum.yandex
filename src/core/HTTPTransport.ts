@@ -18,6 +18,8 @@ interface Options {
 
 type OptionsWithoutMethod = Omit<Options, 'method'>;
 
+type HTTPMethod = <R=unknown>(url: string, options?: OptionsWithoutMethod) => Promise<R>;
+
 class HTTPTransport {
     protected apiUrl: string = '';
 
@@ -25,37 +27,25 @@ class HTTPTransport {
         this.apiUrl = `${constants.HOST}${apiPath}`;
     }
 
-    get = <TResponse>(
-        url: string,
-        options: OptionsWithoutMethod = {},
-    ): Promise<TResponse> => this.request<TResponse>(
+    get: HTTPMethod = (url, options = {}) => (this.request(
         `${this.apiUrl}${url}`,
         { ...options, method: METHOD.GET },
         options.timeout,
-    );
+    ));
 
-    post = <TResponse>(
-        url: string,
-        options:OptionsWithoutMethod = {},
-    ): Promise<TResponse> => this.request<TResponse>(
+    post: HTTPMethod = (url, options = {}) => (this.request(
         `${this.apiUrl}${url}`,
         { ...options, method: METHOD.POST },
         options.timeout,
-    );
+    ));
 
-    put = <TResponse>(
-        url: string,
-        options:OptionsWithoutMethod = {},
-    ): Promise<TResponse> => this.request<TResponse>(
+    put: HTTPMethod = (url, options = {}) => (this.request(
         `${this.apiUrl}${url}`,
         { ...options, method: METHOD.PUT },
         options.timeout,
-    );
+    ));
 
-    delete = <TResponse>(
-        url: string,
-        options:OptionsWithoutMethod = {},
-    ): Promise<TResponse> => this.request<TResponse>(
+    delete: HTTPMethod = (url, options = {}) => this.request(
         `${this.apiUrl}${url}`,
         { ...options, method: METHOD.DELETE },
         options.timeout,
@@ -73,7 +63,7 @@ class HTTPTransport {
 
             if (method === METHOD.GET && data) {
                 // eslint-disable-next-line no-param-reassign
-                url += queryStringify(data as Record<string, any>);
+                url += queryStringify(data as Record<string, unknown>);
             }
 
             xhr.open(method || METHOD.GET, url);

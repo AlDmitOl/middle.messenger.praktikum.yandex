@@ -95,8 +95,7 @@ const router = new Router('#app');
 
 // Можно обновиться на /user и получить сразу пользователя
 router
-    .use('/', pages.ChatPage as BlockType)
-    .use('/login', pages.LoginPage as BlockType)
+    .use('/', pages.LoginPage as BlockType)
     .use('/sign-up', pages.RegistrationPage as BlockType)
     .use('/messenger', pages.ChatPage as BlockType)
     .use('/settings', pages.ProfilePage as BlockType)

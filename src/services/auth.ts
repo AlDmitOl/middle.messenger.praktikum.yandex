@@ -17,11 +17,14 @@ const getUser = async () => {
 };
 
 const signin = async (data: LoginRequestData) => {
-    const response = await authApi.login(data);
-    if (apiHasError(response)) {
-        throw Error(response.reason);
+    try {
+        const response = await authApi.login(data);
+        if (apiHasError(response)) {
+            throw Error(response.reason);
+        }
+    } catch (error) {
+        console.log(error);
     }
-
     const me = await getUser();
     const chats = await getChats();
     window.store.set({ user: me, chats });

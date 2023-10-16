@@ -17,6 +17,14 @@ export class ChatFooter extends Block {
                     this.send();
                 }
             },
+            onShowSmileMenu: (event: MouseEvent) => {
+                event.preventDefault();
+                alert('Этот функционал на данный момент не доступен');
+            },
+            onShowScrapMenu: (event: MouseEvent) => {
+                event.preventDefault();
+                alert('Этот функционал на данный момент не доступен');
+            },
         });
     }
 

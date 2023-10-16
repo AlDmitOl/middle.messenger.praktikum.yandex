@@ -15,7 +15,7 @@ const goToChat = () => {
 };
 
 const goToLogin = () => {
-    router.go('/login');
+    router.go('/');
 };
 
 const goToRegistration = () => {
