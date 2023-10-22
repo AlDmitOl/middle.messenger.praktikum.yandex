@@ -34,7 +34,7 @@ function queryStringify(data: StringIndexed): string | never {
             return `${res}${queryStringify(objValue)}${endLine}`;
         }
 
-        return `${res}${key}=${value}${endLine}`;
+        return `${res}${encodeURIComponent(key)}=${encodeURIComponent(value)}${endLine}`;
     }, '');
 }
 

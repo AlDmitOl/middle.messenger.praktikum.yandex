@@ -1,0 +1,10 @@
+{
+  "extension": ["ts"],
+  "loader": "ts-node/esm",
+  "spec": "src/**/*.spec.ts",
+  "require": ["./mochaSetup.js"],
+  "node-option": [
+    "experimental-specifier-resolution=node",
+    "loader=ts-node/esm"
+  ]
+}

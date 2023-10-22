@@ -1,11 +1,10 @@
 import constants from '../constants';
 import queryStringify from '../utils/queryStringify';
 
-enum METHOD {
+export enum METHOD {
     GET = 'GET',
     POST = 'POST',
     PUT = 'PUT',
-    PATCH = 'PATCH',
     DELETE = 'DELETE',
 }
 
@@ -27,11 +26,22 @@ class HTTPTransport {
         this.apiUrl = `${constants.HOST}${apiPath}`;
     }
 
-    get: HTTPMethod = (url, options = {}) => (this.request(
-        `${this.apiUrl}${url}`,
-        { ...options, method: METHOD.GET },
-        options.timeout,
-    ));
+    get:HTTPMethod = (url, options = {}) => {
+        const { data, ...otherOptions } = options;
+        let newUrl = url;
+        if (data && Object.keys(data).length) {
+            const queryPart = queryStringify(data);
+            if (queryPart) {
+                newUrl += `?${queryPart}`;
+            }
+        }
+
+        return this.request(
+            `${this.apiUrl}${newUrl}`,
+            { ...otherOptions, method: METHOD.GET },
+            options.timeout,
+        );
+    };
 
     post: HTTPMethod = (url, options = {}) => (this.request(
         `${this.apiUrl}${url}`,
@@ -60,11 +70,6 @@ class HTTPTransport {
 
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
-
-            if (method === METHOD.GET && data) {
-                // eslint-disable-next-line no-param-reassign
-                url += queryStringify(data as Record<string, unknown>);
-            }
 
             xhr.open(method || METHOD.GET, url);
 
