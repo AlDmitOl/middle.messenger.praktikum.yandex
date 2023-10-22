@@ -121,8 +121,7 @@ abstract class Block {
         this.componentDidMount();
     }
 
-    componentDidMount() {
-    }
+    componentDidMount() {}
 
     public dispatchComponentDidMount() {
         this.eventBus().emit(Block.EVENTS.FLOW_CDM);
@@ -139,7 +138,7 @@ abstract class Block {
         }
     }
 
-    protected afterComponentUpdate() {}
+    afterComponentUpdate() {}
 
     protected componentDidUpdate(oldProps: Props, newProps: Props) {
         return !isEqual(oldProps, newProps);

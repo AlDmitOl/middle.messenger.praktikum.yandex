@@ -1,6 +1,6 @@
 import Handlebars, { HelperOptions } from 'handlebars';
 import { BlockType, Props } from './Block';
-import mockup from '../data.json';
+import mockup from '../data.json' assert { type: 'json' };
 
 function getProps(components: string, name: string): Props {
     if (!components || !name) return {};
@@ -53,9 +53,9 @@ export function registerComponent(name: string, Component: BlockType) {
                     return;
                 }
 
-                component.getContent()?.append(...Array.from(stub.childNodes));
-
-                stub.replaceWith(component.getContent()!);
+                const element = component.getContent();
+                element?.append(...Array.from(stub.childNodes));
+                stub.replaceWith(element!);
             },
         );
 
